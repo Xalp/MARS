@@ -7,7 +7,7 @@ einops==0.8.2
 evaluate==0.4.6
 huggingface_hub==0.36.2
 Jinja2==3.1.6
-lm-eval[ifeval,math]==0.4.5
+lm-eval[ifeval,math] @ git+https://github.com/ZHZisZZ/lm-evaluation-harness.git
 matplotlib==3.10.8
 numpy==2.4.3
 omegaconf==2.3.0
