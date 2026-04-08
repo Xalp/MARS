@@ -74,6 +74,23 @@ accelerate launch --config_file scripts/accelerate_configs/zero2.yaml \
     --block_size 4 --right_shift_logits --ar_weight 1.0 --bf16
 ```
 
+## Pretrained Models
+
+All models are available on HuggingFace:
+
+| Model | HuggingFace |
+|-------|-------------|
+| AR SFT (0.5B) | [Xalphinions/MARS-Qwen2.5-0.5B-AR-SFT](https://huggingface.co/Xalphinions/MARS-Qwen2.5-0.5B-AR-SFT) |
+| MARS blk4 (0.5B) | [Xalphinions/MARS-Qwen2.5-0.5B-blk4](https://huggingface.co/Xalphinions/MARS-Qwen2.5-0.5B-blk4) |
+| MARS blk8 (0.5B) | [Xalphinions/MARS-Qwen2.5-0.5B-blk8](https://huggingface.co/Xalphinions/MARS-Qwen2.5-0.5B-blk8) |
+| MARS blk16 (0.5B) | [Xalphinions/MARS-Qwen2.5-0.5B-blk16](https://huggingface.co/Xalphinions/MARS-Qwen2.5-0.5B-blk16) |
+| MARS blk4 w/o SFT loss (0.5B) | [Xalphinions/MARS-Qwen2.5-0.5B-blk4-no-sft](https://huggingface.co/Xalphinions/MARS-Qwen2.5-0.5B-blk4-no-sft) |
+| MARS blk8 w/o SFT loss (0.5B) | [Xalphinions/MARS-Qwen2.5-0.5B-blk8-no-sft](https://huggingface.co/Xalphinions/MARS-Qwen2.5-0.5B-blk8-no-sft) |
+| MARS blk16 w/o SFT loss (0.5B) | [Xalphinions/MARS-Qwen2.5-0.5B-blk16-no-sft](https://huggingface.co/Xalphinions/MARS-Qwen2.5-0.5B-blk16-no-sft) |
+| BD3LM blk4 (0.5B) | [Xalphinions/MARS-Qwen2.5-0.5B-BD3LM-blk4](https://huggingface.co/Xalphinions/MARS-Qwen2.5-0.5B-BD3LM-blk4) |
+| AR SFT (7B) | [Xalphinions/MARS-Qwen2.5-7B-AR-SFT](https://huggingface.co/Xalphinions/MARS-Qwen2.5-7B-AR-SFT) |
+| MARS blk4 (7B) | [Xalphinions/MARS-Qwen2.5-7B-blk4](https://huggingface.co/Xalphinions/MARS-Qwen2.5-7B-blk4) |
+
 ## Evaluation
 
 ### One-token mode (Table 2)
