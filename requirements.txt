@@ -1,0 +1,7 @@
+torch>=2.1.0
+transformers>=4.40.0
+accelerate>=0.30.0
+deepspeed>=0.14.0
+lm-eval>=0.4.0
+datasets
+safetensors
