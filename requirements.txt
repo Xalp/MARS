@@ -26,6 +26,7 @@ safetensors==0.7.0
 scikit-learn==1.8.0
 scipy==1.17.1
 sentencepiece==0.2.0
+setuptools
 sympy==1.14.0
 tokenizers==0.22.2
 torch==2.10.0
