@@ -148,6 +148,12 @@ python scripts/benchmark/bench_block_cached.py \
 | Block sizes tested | 4, 8, 16 | 4 |
 | Hardware | 8x H200 | 8x H200 |
 
+## TODO
+
+- [ ] Experiments on reasoning models (Qwen3)
+- [ ] Direct SFT from base models (Qwen3 / Qwen3.5)
+- [ ] Combine MARS with speculative decoding for ultimate speedup
+
 ## Acknowledgements
 
 This codebase is built upon [dLLM](https://github.com/ZHZisZZ/dllm). We thank the authors for open-sourcing their code.
