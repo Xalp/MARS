@@ -13,6 +13,12 @@ bash setup_env.sh
 conda activate mars
 ```
 
+## TODO
+
+- [ ] Experiments on reasoning models (Qwen3)
+- [ ] Direct SFT from base models (Qwen3 / Qwen3.5)
+- [ ] Combine MARS with speculative decoding for ultimate speedup
+
 ## Repository Structure
 
 ```
@@ -147,12 +153,6 @@ python scripts/benchmark/bench_block_cached.py \
 | Max sequence length | 512 | 512 |
 | Block sizes tested | 4, 8, 16 | 4 |
 | Hardware | 8x H200 | 8x H200 |
-
-## TODO
-
-- [ ] Experiments on reasoning models (Qwen3)
-- [ ] Direct SFT from base models (Qwen3 / Qwen3.5)
-- [ ] Combine MARS with speculative decoding for ultimate speedup
 
 ## Acknowledgements
 
