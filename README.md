@@ -147,3 +147,7 @@ python scripts/benchmark/bench_block_cached.py \
 | Max sequence length | 512 | 512 |
 | Block sizes tested | 4, 8, 16 | 4 |
 | Hardware | 8x H200 | 8x H200 |
+
+## Acknowledgements
+
+This codebase is built upon [dLLM](https://github.com/ZHZisZZ/dllm). We thank the authors for open-sourcing their code.
