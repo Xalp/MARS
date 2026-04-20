@@ -222,6 +222,7 @@ python scripts/benchmark/bench_block_cached.py \
 | Learning rate         | 5e-6                    | 5e-6                    |
 | Effective batch size  | 384                     | 384                     |
 | Max sequence length   | 512                     | 512                     |
+| Warmup ratio          | 0.03                    | 0.03                    |
 | Block sizes tested    | 4, 8, 16                | 4, 8, 16                |
 | Hardware              | 8× H200                 | 8× H200                 |
 
