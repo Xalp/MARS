@@ -13,12 +13,6 @@ bash setup_env.sh
 conda activate mars
 ```
 
-## TODO
-
-- [ ] Experiments on reasoning models (Qwen3)
-- [ ] Direct SFT from base models (Qwen3 / Qwen3.5)
-- [ ] Combine MARS with speculative decoding for ultimate speedup
-
 ## Repository Structure
 
 ```
@@ -96,6 +90,8 @@ All models are available on HuggingFace:
 | BD3LM blk4 (0.5B) | [Xalphinions/MARS-Qwen2.5-0.5B-BD3LM-blk4](https://huggingface.co/Xalphinions/MARS-Qwen2.5-0.5B-BD3LM-blk4) |
 | AR SFT (7B) | [Xalphinions/MARS-Qwen2.5-7B-AR-SFT](https://huggingface.co/Xalphinions/MARS-Qwen2.5-7B-AR-SFT) |
 | MARS blk4 (7B) | [Xalphinions/MARS-Qwen2.5-7B-blk4](https://huggingface.co/Xalphinions/MARS-Qwen2.5-7B-blk4) |
+| MARS blk8 (7B) | [Xalphinions/MARS-Qwen2.5-7B-blk8](https://huggingface.co/Xalphinions/MARS-Qwen2.5-7B-blk8) |
+| MARS blk16 (7B) | [Xalphinions/MARS-Qwen2.5-7B-blk16](https://huggingface.co/Xalphinions/MARS-Qwen2.5-7B-blk16) |
 
 ## Evaluation
 
@@ -151,9 +147,5 @@ python scripts/benchmark/bench_block_cached.py \
 | Learning rate | 5e-6 | 5e-6 |
 | Effective batch size | 384 | 384 |
 | Max sequence length | 512 | 512 |
-| Block sizes tested | 4, 8, 16 | 4 |
+| Block sizes tested | 4, 8, 16 | 4, 8, 16 |
 | Hardware | 8x H200 | 8x H200 |
-
-## Acknowledgements
-
-This codebase is built upon [dLLM](https://github.com/ZHZisZZ/dllm). We thank the authors for open-sourcing their code.
