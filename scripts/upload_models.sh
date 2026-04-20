@@ -25,18 +25,18 @@ add() {
 # ---- 7B (upload first) ----
 add "${BASE_DIR}/models/a2d/Qwen2.5-7B-Instruct/general_sft_ar_then_fm_ar/lr-5e-6-ep-5-seq512-blk8/checkpoint-final"  "${HF_ORG}/MARS-Qwen2.5-7B-blk8"
 add "${BASE_DIR}/models/a2d/Qwen2.5-7B-Instruct/general_sft_ar_then_fm_ar/lr-5e-6-ep-5-seq512-blk16/checkpoint-final" "${HF_ORG}/MARS-Qwen2.5-7B-blk16"
-add "${BASE_DIR}/models/a2d/Qwen2.5-7B-Instruct/general_sft_ar_then_fm_ar/lr-5e-6-ep-5-seq512-blk4/checkpoint-final"  "${HF_ORG}/MARS-Qwen2.5-7B-blk4"
-add "${BASE_DIR}/models/a2d/Qwen2.5-7B-Instruct/general_sft_ar/lr-5e-6-ep-5-seq512/checkpoint-final"                   "${HF_ORG}/MARS-Qwen2.5-7B-AR-SFT"
+# add "${BASE_DIR}/models/a2d/Qwen2.5-7B-Instruct/general_sft_ar_then_fm_ar/lr-5e-6-ep-5-seq512-blk4/checkpoint-final"  "${HF_ORG}/MARS-Qwen2.5-7B-blk4"
+# add "${BASE_DIR}/models/a2d/Qwen2.5-7B-Instruct/general_sft_ar/lr-5e-6-ep-5-seq512/checkpoint-final"                   "${HF_ORG}/MARS-Qwen2.5-7B-AR-SFT"
 
-# ---- 0.5B ----
-add "${BASE_DIR}/models/a2d/Qwen2.5-0.5B-Instruct/general_sft_ar/lr-5e-6-ep-5-seq512/checkpoint-final"                    "${HF_ORG}/MARS-Qwen2.5-0.5B-AR-SFT"
-add "${BASE_DIR}/models/a2d/Qwen2.5-0.5B-Instruct/general_sft_ar_then_fm_ar/lr-5e-6-ep-5-seq512-blk4/checkpoint-final"    "${HF_ORG}/MARS-Qwen2.5-0.5B-blk4"
-add "${BASE_DIR}/models/a2d/Qwen2.5-0.5B-Instruct/general_sft_ar_then_fm_ar/lr-5e-6-ep-5-seq512-blk8/checkpoint-final"    "${HF_ORG}/MARS-Qwen2.5-0.5B-blk8"
-add "${BASE_DIR}/models/a2d/Qwen2.5-0.5B-Instruct/general_sft_ar_then_fm_ar/lr-5e-6-ep-5-seq512-blk16/checkpoint-final"   "${HF_ORG}/MARS-Qwen2.5-0.5B-blk16"
-add "${BASE_DIR}/models/a2d/Qwen2.5-0.5B-Instruct/general_sft_ar_then_fm/lr-5e-6-ep-5-seq512-blk4/checkpoint-final"       "${HF_ORG}/MARS-Qwen2.5-0.5B-blk4-no-sft"
-add "${BASE_DIR}/models/a2d/Qwen2.5-0.5B-Instruct/general_sft_ar_then_fm/lr-5e-6-ep-5-seq512-blk8/checkpoint-final"       "${HF_ORG}/MARS-Qwen2.5-0.5B-blk8-no-sft"
-add "${BASE_DIR}/models/a2d/Qwen2.5-0.5B-Instruct/general_sft_ar_then_fm/lr-5e-6-ep-5-seq512-blk16/checkpoint-final"      "${HF_ORG}/MARS-Qwen2.5-0.5B-blk16-no-sft"
-add "${BASE_DIR}/models/a2d/Qwen2.5-0.5B-Instruct/general_sft_ar_then_bd3lm/lr-5e-6-ep-5-seq512-blk4/checkpoint-final"    "${HF_ORG}/MARS-Qwen2.5-0.5B-BD3LM-blk4"
+# # ---- 0.5B ----
+# add "${BASE_DIR}/models/a2d/Qwen2.5-0.5B-Instruct/general_sft_ar/lr-5e-6-ep-5-seq512/checkpoint-final"                    "${HF_ORG}/MARS-Qwen2.5-0.5B-AR-SFT"
+# add "${BASE_DIR}/models/a2d/Qwen2.5-0.5B-Instruct/general_sft_ar_then_fm_ar/lr-5e-6-ep-5-seq512-blk4/checkpoint-final"    "${HF_ORG}/MARS-Qwen2.5-0.5B-blk4"
+# add "${BASE_DIR}/models/a2d/Qwen2.5-0.5B-Instruct/general_sft_ar_then_fm_ar/lr-5e-6-ep-5-seq512-blk8/checkpoint-final"    "${HF_ORG}/MARS-Qwen2.5-0.5B-blk8"
+# add "${BASE_DIR}/models/a2d/Qwen2.5-0.5B-Instruct/general_sft_ar_then_fm_ar/lr-5e-6-ep-5-seq512-blk16/checkpoint-final"   "${HF_ORG}/MARS-Qwen2.5-0.5B-blk16"
+# add "${BASE_DIR}/models/a2d/Qwen2.5-0.5B-Instruct/general_sft_ar_then_fm/lr-5e-6-ep-5-seq512-blk4/checkpoint-final"       "${HF_ORG}/MARS-Qwen2.5-0.5B-blk4-no-sft"
+# add "${BASE_DIR}/models/a2d/Qwen2.5-0.5B-Instruct/general_sft_ar_then_fm/lr-5e-6-ep-5-seq512-blk8/checkpoint-final"       "${HF_ORG}/MARS-Qwen2.5-0.5B-blk8-no-sft"
+# add "${BASE_DIR}/models/a2d/Qwen2.5-0.5B-Instruct/general_sft_ar_then_fm/lr-5e-6-ep-5-seq512-blk16/checkpoint-final"      "${HF_ORG}/MARS-Qwen2.5-0.5B-blk16-no-sft"
+# add "${BASE_DIR}/models/a2d/Qwen2.5-0.5B-Instruct/general_sft_ar_then_bd3lm/lr-5e-6-ep-5-seq512-blk4/checkpoint-final"    "${HF_ORG}/MARS-Qwen2.5-0.5B-BD3LM-blk4"
 
 upload() {
     local path=$1 repo=$2

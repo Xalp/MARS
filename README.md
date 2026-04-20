@@ -4,6 +4,10 @@ Code for the paper: *MARS: Enabling Autoregressive Models Multi-Token Generation
 
 MARS enables existing AR instruction-tuned models to generate multiple tokens per forward pass with **zero architectural changes** and a **single checkpoint**. The AR model remains fully functional -- MARS adds multi-token prediction as an additional capability through masked fine-tuning.
 
+## Updates
+
+- 2026-04-20: Uploaded 7B blk8/16 models to HuggingFace.
+
 ## Setup
 
 ```bash
@@ -41,8 +45,9 @@ MARS/
 
 MARS uses a two-stage training pipeline:
 
-**Stage 1: AR SFT** -- Standard next-token prediction fine-tuning.
-**Stage 2: MARS** -- Masked block prediction with optional auxiliary AR loss.
+**Stage 1: AR SFT** -- Standard next-token prediction fine-tuning. This is a control step to eliminate the effect of the performance gain from the new data.
+
+**Stage 2: MARS** -- Masked block prediction with optional auxiliary AR loss. This stage trains the model to predict multiple tokens per forward pass by introducing mask token!
 
 ### Quick Start (0.5B)
 
