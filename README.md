@@ -5,7 +5,7 @@
 </div>
 
 <p align="center">
-  <img src="assets/mars_overview.jpg" alt="MARS training mask and inference" width="88%">
+  <img src="assets/mars_overviews.jpg" alt="MARS training mask and inference" width="88%">
 </p>
 
 **MARS** converts any instruction-tuned autoregressive (AR) model into a
