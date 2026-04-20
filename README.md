@@ -232,9 +232,13 @@ python scripts/benchmark/bench_block_cached.py \
 ## Citation
 
 ```bibtex
-@article{mars2026,
-  title   = {MARS: Enabling Autoregressive Models Multi-Token Generation},
-  author  = {<anonymous>},
-  year    = {2026},
+@misc{jin2026marsenablingautoregressivemodels,
+      title={MARS: Enabling Autoregressive Models Multi-Token Generation}, 
+      author={Ziqi Jin and Lei Wang and Ziwei Luo and Aixin Sun},
+      year={2026},
+      eprint={2604.07023},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2604.07023}, 
 }
 ```
