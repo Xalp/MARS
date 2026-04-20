@@ -33,10 +33,6 @@ per-request.
 
 ## How it works
 
-<p align="center">
-  <img src="assets/method_attention.png" alt="MARS attention mask and sliding-window inference" width="88%">
-</p>
-
 MARS is trained with a `[noisy | clean]` concatenation and a structured
 attention mask that keeps the clean stream pure-causal (AR) while letting the
 noisy stream predict a full block of masked tokens in parallel, conditioned
