@@ -1,6 +1,6 @@
 <div align="center">
 
-# MARS: Enabling Autoregressive Models Multi-Token Generation
+# 🪐 MARS: Enabling Autoregressive Models Multi-Token Generation
 
 </div>
 
@@ -13,7 +13,7 @@ multi-token predictor with **zero architectural changes, zero additional
 parameters, and a single checkpoint**. The AR capability is fully preserved;
 multi-token generation is available as an opt-in acceleration mode. A fine-tuned
 model checkpoint can be served at a quality-latency tradeoff chosen
-per-request.
+per-request. **We release all our checkpoints and training/eval scripts to support further research.**
 
 ## TL;DR
 
