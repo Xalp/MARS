@@ -33,7 +33,6 @@ per-request. **We release all our checkpoints and training/eval scripts to suppo
 
 ## 💥💥💥 Updates
 
-- **2026-04-22** — We update our paper with more 7B results and speculative decoding. Version 2 is available [here](paper/MARS_Paper_v2.pdf).
 - **2026-04-20** — Uploaded 7B blk8/16 models to HuggingFace.
 
 
