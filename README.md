@@ -15,6 +15,10 @@ multi-token generation is available as an opt-in acceleration mode. A fine-tuned
 model checkpoint can be served at a quality-latency tradeoff chosen
 per-request. **We release all our checkpoints and training/eval scripts to support further research.**
 
+<p align="center">
+  <img src="assets/fig1.png" alt="MARS speed-quality tradeoff" width="88%">
+</p>
+
 ## TL;DR
 
 - **Lossless at τ=1.0.** MARS matches or exceeds AR SFT on IFEval, BBH,
@@ -27,9 +31,27 @@ per-request. **We release all our checkpoints and training/eval scripts to suppo
 - **Zero architectural changes.** MARS is a fine-tuning method, not a new
   architecture. Inherits all AR serving infrastructure.
 
-## Updates
+## 💥💥💥 Updates
 
+- **2026-04-22** — We update our paper with 7B results and speculative decoding.
 - **2026-04-20** — Uploaded 7B blk8/16 models to HuggingFace.
+
+
+## 💯 Reproducing Paper Results
+
+| Script | Paper Reference |
+|--------|-----------------|
+| `scripts/train/train_0.5b.sh`            | Table 2 (0.5B models)                  |
+| `scripts/train/train_7b.sh`              | Table 2 (7B models)                    |
+| `scripts/train/train_blk8_16.sh`         | Table 3 (block size ablation)          |
+| `scripts/train/train_bd3lm_baseline.sh`  | Table 2 (BD3LM baseline)               |
+| `scripts/eval/eval_main.sh`              | Table 2 (main results)                 |
+| `scripts/eval/eval_threshold_095.sh`     | Table 4 (multi-token at τ=0.95)        |
+| `scripts/eval/eval_threshold_sweep.sh`   | Appendix Table 15 (full sweep)         |
+| `scripts/eval/eval_acceptance_metrics.sh`| Appendix Figure 7 (metric comparison)  |
+| `scripts/benchmark/bench_block_cached.sh`| Table 5 (wall-clock speedup)           |
+| `scripts/benchmark/bench_full_sweep.sh`  | Figure 5 (parameter sweep)             |
+
 
 ## How it works
 
@@ -103,34 +125,11 @@ All models available on HuggingFace.
 | MARS (no SFT loss)       | 16 | [Xalphinions/MARS-Qwen2.5-0.5B-blk16-no-sft](https://huggingface.co/Xalphinions/MARS-Qwen2.5-0.5B-blk16-no-sft) |
 | BD3LM (baseline)         | 4  | [Xalphinions/MARS-Qwen2.5-0.5B-BD3LM-blk4](https://huggingface.co/Xalphinions/MARS-Qwen2.5-0.5B-BD3LM-blk4) |
 
-## Repository Structure
-
-```
-MARS/
-├── mars/                          # Core MARS code
-│   ├── trainers/
-│   │   ├── attention_mask.py      # MARS training attention mask
-│   │   └── mars_trainer.py        # MARSTrainer (with / without SFT loss)
-│   ├── samplers/
-│   │   ├── mars_sampler.py        # Sliding-window sampler
-│   │   ├── mars_cached_sampler.py # KV-cached sampler (per-step + block-level)
-│   │   └── mars_batch_sampler.py  # Batch sampler
-│   └── eval_harness.py            # lm-eval integration
-├── dllm/                          # Base infrastructure (trainers, configs, data utils)
-├── train/                         # Training entry points
-│   ├── train_ar_sft.py            # Stage 1: Standard AR SFT
-│   ├── train_mars.py              # Stage 2: MARS (with SFT loss)
-│   └── train_mars_no_sft.py       # Stage 2: MARS (without SFT loss)
-└── scripts/                       # Experiment scripts (train / eval / benchmark)
-```
-
 ## Training
 
-MARS uses a two-stage pipeline:
+MARS first trains the model with AR SFT (control step), then MARS training with the same dataset. This is a control step to isolate MARS's effect from the effect of additional data exposure.
 
-- **Stage 1: AR SFT** — standard next-token prediction fine-tuning. This is
-  a control step to isolate MARS's effect from the effect of additional data
-  exposure.
+- **Stage 1: AR SFT** — standard next-token prediction fine-tuning. 
 - **Stage 2: MARS** — masked block prediction with auxiliary AR loss, starting
   from the Stage 1 checkpoint.
 
@@ -166,6 +165,10 @@ accelerate launch --config_file scripts/accelerate_configs/zero2.yaml \
 
 ## Evaluation
 
+<p align="center">
+  <img src="assets/tab2.png" alt="MARS speed-quality tradeoff" width="88%">
+</p>
+
 ### One-token mode (τ=1.0, Table 2)
 
 No acceleration, isolates quality.
@@ -176,6 +179,10 @@ accelerate launch --num_processes 8 mars/eval_harness.py \
     --model mars --apply_chat_template \
     --model_args "pretrained=${BASE_DIR}/models/mars_blk4/checkpoint-final,max_new_tokens=256,steps=256,block_size=4,cfg=0.0,right_shift_logits=True"
 ```
+
+<p align="center">
+  <img src="assets/tab4.png" alt="MARS speed-quality tradeoff" width="88%">
+</p>
 
 ### Multi-token mode (τ=0.95, Table 4)
 
@@ -190,27 +197,16 @@ accelerate launch --num_processes 8 mars/eval_harness.py \
 
 ### Block-cached batch inference (Table 5, wall-clock)
 
+<p align="center">
+  <img src="assets/tab5.png" alt="MARS speed-quality tradeoff" width="88%">
+</p>
+
 ```bash
 python scripts/benchmark/bench_block_cached.py \
     --mars_model ${BASE_DIR}/models/mars_blk4/checkpoint-final \
     --ar_model ${BASE_DIR}/models/ar_sft/checkpoint-final \
     --batch_size 16 --block_sizes "4,8,16,32" --threshold 0.95
 ```
-
-## Reproducing Paper Results
-
-| Script | Paper Reference |
-|--------|-----------------|
-| `scripts/train/train_0.5b.sh`            | Table 2 (0.5B models)                  |
-| `scripts/train/train_7b.sh`              | Table 2 (7B models)                    |
-| `scripts/train/train_blk8_16.sh`         | Table 3 (block size ablation)          |
-| `scripts/train/train_bd3lm_baseline.sh`  | Table 2 (BD3LM baseline)               |
-| `scripts/eval/eval_main.sh`              | Table 2 (main results)                 |
-| `scripts/eval/eval_threshold_095.sh`     | Table 4 (multi-token at τ=0.95)        |
-| `scripts/eval/eval_threshold_sweep.sh`   | Appendix Table 15 (full sweep)         |
-| `scripts/eval/eval_acceptance_metrics.sh`| Appendix Figure 7 (metric comparison)  |
-| `scripts/benchmark/bench_block_cached.sh`| Table 5 (wall-clock speedup)           |
-| `scripts/benchmark/bench_full_sweep.sh`  | Figure 5 (parameter sweep)             |
 
 ## Hyperparameters
 
